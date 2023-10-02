@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from django_views_routing_homework.views.level_1.a_welcome_user import welcome_user_view
+from django_views_routing_homework.views.level_1.b_bye_user import bye_user_view
 from django_views_routing_homework.views.level_1.c_baned_username import is_username_banned_view
 from django_views_routing_homework.views.level_2.a_user_info_by_username import get_user_info_by_username_view
 from django_views_routing_homework.views.level_2.c_product_type import get_products_view
@@ -24,4 +25,5 @@ urlpatterns = [
     path('user/github/<slug:github_username>/full-name/', validate_user_data_view),
     path('text/generate/', generate_file_with_text_view),
     # добавлять пути тут
+    path('bye/', bye_user_view),
 ]
