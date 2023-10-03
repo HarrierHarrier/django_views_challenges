@@ -38,7 +38,10 @@ USERNAME_TO_PASSWORD_MAPPER = {
 def process_authorization_view(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        # код писать тут
+        correct_password = USERNAME_TO_PASSWORD_MAPPER.get(data['username'])
+        if data['password'] == correct_password:
+            return JsonResponse(data={}, status=200)
+        return JsonResponse(data={}, status=403)
     else:
         return HttpResponseNotAllowed(permitted_methods=['POST'])
 
